@@ -9,14 +9,14 @@
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            background: url("https://i.pinimg.com/736x/2e/11/f8/2e11f8d415b155b17325b03eacb021d9.jpg") no-repeat center center fixed;
+            background: url("https://i.pinimg.com/736x/87/73/c4/8773c4ecc2cdcda6dc5e23a94baceeff.jpg") no-repeat center center fixed;
             background-size: cover;
             color: #f4f4f9;
         }
         header, section, footer {
             text-align: center;
             padding: 50px 20px;
-            background: rgba(0, 0, 0, 0.8); /* Fundo semitransparente para contraste */
+            background: rgba(0, 0, 0, 0.8);
         }
         header h1, section h2 {
             font-size: 2.5em;
@@ -47,20 +47,69 @@
         }
         footer {
             font-size: 0.9em;
-            background: rgba(0, 0, 0, 0.9); /* Fundo mais escuro para o rodapé */
+            background: rgba(0, 0, 0, 0.9);
             color: #bbb;
         }
         footer p {
             margin: 10px 0;
         }
+        /* Efeito de brilho e piscar */
+        .oferta-especial {
+            font-size: 2.8em;
+            font-weight: bold;
+            color: #ffcc00;
+            text-shadow: 0 0 10px #ff6600, 0 0 20px #ff3300;
+            animation: piscar 1.5s infinite alternate;
+        }
+        @keyframes piscar {
+            0% { opacity: 1; }
+            100% { opacity: 0.5; }
+        }
+        /* Botão fixo do WhatsApp */
+        .whatsapp-fixed {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: #25d366;
+            color: white;
+            padding: 15px 20px;
+            font-size: 1.2em;
+            font-weight: bold;
+            border-radius: 50px;
+            text-align: center;
+        }
+        /* Contador regressivo */
+        .contador {
+            font-size: 1.5em;
+            font-weight: bold;
+            color: #ffcc00;
+        }
     </style>
+    <script>
+        function iniciarContador() {
+            var tempoRestante = 86400; // 24 horas em segundos
+            var elemento = document.getElementById("contador");
+            function atualizarContador() {
+                var horas = Math.floor(tempoRestante / 3600);
+                var minutos = Math.floor((tempoRestante % 3600) / 60);
+                var segundos = tempoRestante % 60;
+                elemento.innerHTML = horas + "h " + minutos + "m " + segundos + "s";
+                if (tempoRestante > 0) {
+                    tempoRestante--;
+                    setTimeout(atualizarContador, 1000);
+                }
+            }
+            atualizarContador();
+        }
+        window.onload = iniciarContador;
+    </script>
 </head>
 <body>
 
 <header>
     <h1>Aprenda Tatuagem do Zero!</h1>
     <p>Curso prático e direto para iniciantes que querem entrar no mundo da tatuagem.</p>
-    <a href="https://wa.me/559281708914">Comece Agora!</a>
+    <a href="https://wa.me/559281708914">Quero Me Tornar Tatuador!</a>
 </header>
 
 <section>
@@ -80,15 +129,28 @@
 </section>
 
 <section id="inscricao">
-    <h2>Oferta Especial</h2>
-    <p>Aproveite o preço exclusivo para os primeiros inscritos!</p>
-    <h3>Investimento: R$ 1.700</h3>
+    <h2 class="oferta-especial">🔥 Oferta Especial! 🔥</h2>
+    <p>Preço exclusivo para os primeiros inscritos!</p>
+    <h3>Investimento: R$ 1.700 <br><span class="contador" id="contador"></span></h3>
     <a href="https://wa.me/559281708914">Inscreva-se Agora!</a>
+</section>
+
+<section>
+    <h2>O que dizem nossos alunos:</h2>
+    <p>⭐⭐⭐⭐⭐ "Esse curso mudou minha vida, hoje sou tatuador profissional!" – João S.</p>
+    <p>⭐⭐⭐⭐⭐ "Aprendi mais em um mês do que em um ano tentando sozinho!" – Mariana R.</p>
+    <p>⭐⭐⭐⭐⭐ "O curso é direto ao ponto! Aprendi tudo que precisava para começar a tatuar." – Lucas M.</p>  
+    <p>⭐⭐⭐⭐⭐ "Explicação clara e prática! Já estou atendendo meus primeiros clientes." – Fernanda A.</p>  
+    <p>⭐⭐⭐⭐⭐ "Vale cada centavo! Material excelente e suporte incrível." – Ricardo T.</p>  
+
 </section>
 
 <footer>
     <p>Desenvolvido por Alessàndrho Peréira</p>
 </footer>
 
+<a href="https://wa.me/559281708914" class="whatsapp-fixed">📩 Fale Conosco</a>
+
 </body>
 </html>
+
